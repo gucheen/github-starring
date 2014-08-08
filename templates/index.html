@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>All-Star</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.min.css">
+
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills nav-tabs pull-right">
+                <li class="active"><a href="#home" data-toggle="tab">Home</a>
+                </li>
+                <li><a href="https://github.com/login/oauth/authorize?client_id=#yourClientID&scope=repo">Auth</a>
+                </li>
+                <li><a href="#about" data-toggle="tab">About</a>
+                </li>
+            </ul>
+            <h3 class="text-muted">All-Star</h3>
+        </div>
+
+        <div class="tab-content">
+            <div class="col-md-12 tab-pane active" id="home">
+                <div class="col-md-12">
+                    <h3>任务状态</h3>
+                    <form id="input-user" class="form-inline">
+                        <input id="tar-user" type="text" class="form-control" placeholder="输入目标用户名">
+                    </form>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0">
+                            <span class="sr-only"></span>
+                        </div>
+                    </div>
+                    <button id="get-repo-list" class="btn btn-primary">Get Repo</button>
+                    <button id="run" class="btn btn-lg btn-info">Run <span class="glyphicon glyphicon-play"></span></button>
+                    <button id="reset" class="btn btn-default">Reset</button>
+                </div>
+
+                <div class="col-md-12">
+                    <h3>Repositories list</h3>
+                    <ul id="repo-list" class="list-unstyled">
+                        <li class="col-md-6 repos"><input class="repo-check" type="checkbox" data-repo="newghost/ourjs" checked><a href="https://github.com/newghost/ourjs">newghost/ourjs</a></li>
+                        <li class="col-md-6 repos"><input class="repo-check" type="checkbox" data-repo="kennethreitz/httpbin" checked><a href="https://github.com/kennethreitz/httpbin">kennethreitz/httpbin</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-12">
+                    <h3>使用帮助</h3>
+                    <p>1. 点击 "Auth" 授权</p>
+                    <p>2. 输入要导入对象的用户名，点击 "Get Repo" ，取得 Repository 列表</p>
+                    <p>3. 默认所有 Repo 被选中，按需求取消选中，就可以排除该 Repo</p>
+                    <p>4. 点击 "Run" ，开始导入，其实就是一个一个 Star ，成功的会变成绿色，失败的变成红色。</p>
+                    <p>存在一个问题，github 的 API 每次最多返回100个item，因此还需要考虑翻页问题，正在寻找解决办法。没有做已 star 校验，以后可能会加。</p>
+                </div>
+            </div>
+            <div class="col-md-12 tab-pane" id="about">
+                <p>这是一个用来导入其他用户star列表的工具。</p>
+            </div>
+        </div>
+
+        <div class="footer col-md-12">
+            <p><span class="glyphicon glyphicon-heart"></span> By Guc</p>
+        </div>
+
+    </div>
+
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.min.js"></script>
+</body>
+
+</html>
